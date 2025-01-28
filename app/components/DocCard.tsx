@@ -5,13 +5,15 @@ const DocCard = () => {
     <div className="bg-dark-700 flex justify-between  rounded-md">
       <div className="flex gap-4 p-5">
         {" "}
-        <div className="bg-dark-400 p-2 rounded-md">
+        {/*<div className="sm:bg-dark-400 sm:p-2 sm:rounded-md "></div>*/}
+        <div className="w-[50px] max-w-[120px] sm:w-[60px]  sm:bg-dark-400 rounded-md">
           <Image
             src={"/assets/icons/doc.svg"}
             alt="doc icon"
             width={50}
             height={50}
             unoptimized
+            className="w-full object-cover sm:p-2"
           />
         </div>
         <div>
