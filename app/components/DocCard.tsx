@@ -1,0 +1,37 @@
+import Image from "next/image";
+
+const DocCard = () => {
+  return (
+    <div className="bg-dark-700 flex justify-between  rounded-md">
+      <div className="flex gap-4 p-5">
+        {" "}
+        <div className="bg-dark-400 p-2 rounded-md">
+          <Image
+            src={"/assets/icons/doc.svg"}
+            alt="doc icon"
+            width={50}
+            height={50}
+            unoptimized
+          />
+        </div>
+        <div>
+          <p className="capitalize font-semibold text-[18px] tracking-wide">
+            JSM new project requirement
+          </p>
+          <p className="text-blue-100 mt-[.5em] ">Created about 03 hours ago</p>
+        </div>
+      </div>
+      <div className="mt-[1.5em] pr-4">
+        <Image
+          src={"/assets/icons/delete.svg"}
+          alt="delete icon"
+          width={25}
+          height={25}
+          unoptimized
+        />
+      </div>
+    </div>
+  );
+};
+
+export default DocCard;
