@@ -2,10 +2,9 @@ import Image from "next/image";
 
 const DocCard = () => {
   return (
-    <div className="bg-dark-700 flex justify-between  rounded-md">
+    <div className="bg-dark-700 flex justify-between items-start rounded-md">
       <div className="flex gap-4 p-5">
         {" "}
-        {/*<div className="sm:bg-dark-400 sm:p-2 sm:rounded-md "></div>*/}
         <div className="w-[50px] max-w-[120px] sm:w-[60px]  sm:bg-dark-400 rounded-md">
           <Image
             src={"/assets/icons/doc.svg"}
@@ -23,13 +22,14 @@ const DocCard = () => {
           <p className="text-blue-100 mt-[.5em] ">Created about 03 hours ago</p>
         </div>
       </div>
-      <div className="mt-[1.5em] pr-4">
+      <div className="mt-[1.5em] w-[30px] max-w-[50px] sm:w-[40px] cursor-pointer">
         <Image
           src={"/assets/icons/delete.svg"}
           alt="delete icon"
           width={25}
           height={25}
           unoptimized
+          className=" sm:pr-4 w-full object-cover"
         />
       </div>
     </div>
