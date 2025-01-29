@@ -1,8 +1,12 @@
+'use client';
+
 import Image from "next/image";
+import { useDoc } from "../context/DocContext";
 
 const DocCard = () => {
+  
   return (
-    <div className="bg-dark-700 flex justify-between items-start rounded-md">
+    <div className="bg-dark-700 flex justify-between items-start rounded-md box-shadow mb-6">
       <div className="flex gap-4 p-5">
         {" "}
         <div className="w-[50px] max-w-[120px] sm:w-[60px]  sm:bg-dark-400 rounded-md">
@@ -15,7 +19,7 @@ const DocCard = () => {
             className="w-full object-cover sm:p-2"
           />
         </div>
-        <div className="">
+        <div>
           <p className="capitalize font-semibold text-[18px] tracking-wide">
             JSM new project requirement
           </p>

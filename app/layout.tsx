@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import '@/lib/fontawesome';
+import "@/lib/fontawesome";
+import DocProvider from "./context/DocContext";
 
 export const metadata: Metadata = {
   title: "Live Docs",
@@ -15,7 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <DocProvider>{children}</DocProvider>
+      </body>
     </html>
   );
 }
