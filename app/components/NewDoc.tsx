@@ -1,6 +1,10 @@
+import Toolbar from "./Toolbar"
+
 const NewDoc = () => {
   return (
-    <div>NewDoc</div>
+    <div>
+      <Toolbar />
+    </div>
   )
 }
 

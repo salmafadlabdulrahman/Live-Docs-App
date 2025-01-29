@@ -16,8 +16,19 @@ body {
   color: white;
 }
 
-@layer utilities {
+@layer base {
   .box-shadow {
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  }
+}
+
+@layer utilities {
+  .main-btn {
+    @apply rounded-md font-semibold bg-blue-400;
+
+  }
+
+  .flex-row-center {
+    @apply flex items-center gap-2 justify-center
   }
 }

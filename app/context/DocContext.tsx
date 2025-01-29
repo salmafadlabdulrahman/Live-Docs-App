@@ -1,10 +1,10 @@
 'use client';
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 interface DocContextType {
   docState: boolean;
-  setDocState: React.Dispatch<React.SetStateAction<boolean>> //(val:boolean) => void
+  setDocState: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const DocContext = createContext<DocContextType | undefined>(undefined);

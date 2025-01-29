@@ -1,7 +1,6 @@
 'use client';
 
 import Image from "next/image";
-import { useDoc } from "../context/DocContext";
 
 const DocCard = () => {
   
