@@ -1,6 +1,3 @@
-import Image from "next/image";
-import { useEditor, EditorContent } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
 import {
   faAlignCenter,
   faAlignLeft,
@@ -15,84 +12,100 @@ import {
   faUnderline,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-const tools = [
-  {
-    icon: faArrowLeft,
-    action: (editor: any) => editor.chain().focus().undo().run(),
-  },
-  {
-    icon: faArrowRight,
-    action: (editor: any) => editor.chain().focus().redo().run(),
-  },
-  {
-    icon: faBold,
-    action: (editor: any) => editor.chain().focus().toggleBold().run(),
-  },
-  {
-    icon: faItalic,
-    action: (editor: any) => editor.chain().focus().toggleItalic().run(),
-  },
-  {
-    icon: faUnderline,
-    action: (editor: any) =>
-      console.log("Underline not built-in. Extend TipTap"),
-  },
-  {
-    icon: faStrikethrough,
-    action: (editor: any) => editor.chain().focus().toggleStrike().run(),
-  },
-  {
-    icon: faList,
-    action: (editor: any) => editor.chain().focus().toggleStrike().run(),
-  },
-  {
-    icon: faListOl,
-    action: (editor: any) => editor.chain().focus().toggleStrike().run(),
-  },
-  {
-    icon: faAlignLeft,
-    action: (editor: any) => editor.chain().focus().toggleStrike().run(),
-  },
-  {
-    icon: faAlignCenter,
-    action: (editor: any) => editor.chain().focus().toggleStrike().run(),
-  },
-  {
-    icon: faAlignRight,
-    action: (editor: any) => editor.chain().focus().toggleStrike().run(),
-  },
-];
+import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
+import {
+  FORMAT_TEXT_COMMAND,
+  FORMAT_ELEMENT_COMMAND,
+  UNDO_COMMAND,
+  REDO_COMMAND,
+} from "lexical";
+import {
+  INSERT_UNORDERED_LIST_COMMAND,
+  INSERT_ORDERED_LIST_COMMAND,
+} from "@lexical/list";
+import Image from "next/image";
 
 const Toolbar = () => {
-  const editor = useEditor({
-    extensions: [StarterKit],
-  }); //content: '<p>Start typing here...</p>',
+  const [editor] = useLexicalComposerContext();
   return (
-    <div className="">
-      <div className="flex items-center justify-between border border-y-2 border-dark-200 p-3 ">
-        <div className="flex">
-          {tools.map((tool, i) => (
-            <div key={i}>
-              <button onClick={() => tool.action(editor)} className=" p-2">
-                <FontAwesomeIcon icon={tool.icon} />
-              </button>
-            </div>
-          ))}
-        </div>
+    <div className="flex items-center justify-between border border-y-2 border-dark-200 ">
+      <div className="flex items-center gap-6 p-5 flex-wrap">
+        <button onClick={() => editor.dispatchCommand(UNDO_COMMAND, undefined)}>
+          <FontAwesomeIcon icon={faArrowLeft} className="toolbar-icons" />{" "}
+        </button>
+        <button onClick={() => editor.dispatchCommand(REDO_COMMAND, undefined)}>
+          <FontAwesomeIcon icon={faArrowRight} className="toolbar-icons" />
+        </button>
+        <button
+          onClick={() => editor.dispatchCommand(FORMAT_TEXT_COMMAND, "bold")}
+        >
+          <FontAwesomeIcon icon={faBold} className="toolbar-icons" />
+        </button>
+        <button
+          onClick={() => editor.dispatchCommand(FORMAT_TEXT_COMMAND, "italic")}
+        >
+          <FontAwesomeIcon icon={faItalic} className="toolbar-icons" />
+        </button>
+        <button
+          onClick={() =>
+            editor.dispatchCommand(FORMAT_TEXT_COMMAND, "underline")
+          }
+        >
+          <FontAwesomeIcon icon={faUnderline} className="toolbar-icons" />
+        </button>
+        <button
+          onClick={() =>
+            editor.dispatchCommand(FORMAT_TEXT_COMMAND, "strikethrough")
+          }
+        >
+          <FontAwesomeIcon icon={faStrikethrough} className="toolbar-icons" />
+        </button>
+        <button
+          onClick={() =>
+            editor.dispatchCommand(INSERT_UNORDERED_LIST_COMMAND, undefined)
+          }
+        >
+          <FontAwesomeIcon icon={faList} className="toolbar-icons" />
+        </button>
+        <button
+          onClick={() =>
+            editor.dispatchCommand(INSERT_ORDERED_LIST_COMMAND, undefined)
+          }
+        >
+          <FontAwesomeIcon icon={faListOl} className="toolbar-icons" />
+        </button>
 
-        <div className=" w-[35px] max-w-[50px] sm:w-[40px] cursor-pointer pr-1">
-          <Image
-            src={"/assets/icons/delete.svg"}
-            alt="delete icon"
-            width={25}
-            height={25}
-            unoptimized
-            className=" sm:pr-4 w-full object-cover"
-          />
-        </div>
+        <button
+          onClick={() => editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, "left")}
+        >
+          <FontAwesomeIcon icon={faAlignLeft} className="toolbar-icons" />
+        </button>
+        <button
+          onClick={() =>
+            editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, "center")
+          }
+        >
+          <FontAwesomeIcon icon={faAlignCenter} className="toolbar-icons" />
+        </button>
+
+        <button
+          onClick={() =>
+            editor.dispatchCommand(FORMAT_ELEMENT_COMMAND, "right")
+          }
+        >
+          <FontAwesomeIcon icon={faAlignRight} className="toolbar-icons" />
+        </button>
       </div>
-
-      <EditorContent editor={editor} />
+      <div className=" w-[35px] max-w-[50px] sm:w-[40px] cursor-pointer pr-1">
+        <Image
+          src={"/assets/icons/delete.svg"}
+          alt="delete icon"
+          width={25}
+          height={25}
+          unoptimized
+          className=" sm:pr-4 w-full object-cover"
+        />
+      </div>
     </div>
   );
 };

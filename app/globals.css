@@ -31,4 +31,8 @@ body {
   .flex-row-center {
     @apply flex items-center gap-2 justify-center
   }
+
+  .toolbar-icons {
+    @apply text-[#9b9b9b] text-[20px];
+  }
 }

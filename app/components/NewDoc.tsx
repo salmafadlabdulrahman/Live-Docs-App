@@ -1,9 +1,9 @@
-import Toolbar from "./Toolbar"
+import LexicalEditor from "./LexicalEditor"
 
 const NewDoc = () => {
   return (
     <div>
-      <Toolbar />
+      <LexicalEditor/>
     </div>
   )
 }
