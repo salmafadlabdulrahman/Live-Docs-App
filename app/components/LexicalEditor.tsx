@@ -42,7 +42,7 @@ export default function LexicalEditor() {
           ErrorBoundary={LexicalErrorBoundary}
         /> {/*lg:w-[50%] */}
 
-        <div className="w-[90%] m-auto mt-[2em] lg:w-[40%] lg:mr-[2em] lg:mt-0 md:flex justify-between lg:flex-col mb-[2em] ">
+        <div className="w-[90%] m-auto mt-[2em] lg:w-[40%] lg:mr-[2em] lg:mt-0 md:flex md:justify-between lg:flex-col lg:justify-normal mb-[2em] ">
           <CommentSection />
           <ThreadSection />
         </div>
