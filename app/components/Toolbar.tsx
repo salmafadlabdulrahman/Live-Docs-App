@@ -50,28 +50,28 @@ const Toolbar = () => {
           onClick={() =>
             editor.dispatchCommand(FORMAT_TEXT_COMMAND, "underline")
           }
-        >
+        > {/*not working */}
           <FontAwesomeIcon icon={faUnderline} className="toolbar-icons" />
         </button>
         <button
           onClick={() =>
             editor.dispatchCommand(FORMAT_TEXT_COMMAND, "strikethrough")
           }
-        >
+        > {/*not working */}
           <FontAwesomeIcon icon={faStrikethrough} className="toolbar-icons" />
         </button>
         <button
           onClick={() =>
             editor.dispatchCommand(INSERT_UNORDERED_LIST_COMMAND, undefined)
           }
-        >
+        > {/*not working */}
           <FontAwesomeIcon icon={faList} className="toolbar-icons" />
         </button>
         <button
           onClick={() =>
             editor.dispatchCommand(INSERT_ORDERED_LIST_COMMAND, undefined)
           }
-        >
+        > {/*not working */}
           <FontAwesomeIcon icon={faListOl} className="toolbar-icons" />
         </button>
 

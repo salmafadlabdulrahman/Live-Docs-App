@@ -35,4 +35,8 @@ body {
   .toolbar-icons {
     @apply text-[#9b9b9b] text-[20px];
   }
+
+  .comment-thread-section-btn {
+    @apply bg-dark-400 rounded-md w-[36px] h-[34px] flex items-center justify-center box-shadow cursor-pointer
+  }
 }
