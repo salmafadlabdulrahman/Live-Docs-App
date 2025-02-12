@@ -40,7 +40,7 @@ export default function LexicalEditor() {
             <ContentEditable className="h-screen w-[90%] lg:w-[80%] xl:w-full m-auto bg-dark-200 outline-none rounded-md  lg:ml-[3em] p-2 lg:mt-0" />
           }
           ErrorBoundary={LexicalErrorBoundary}
-        /> {/*lg:w-[50%] */}
+        />
 
         <div className="w-[90%] m-auto mt-[2em] lg:w-[40%] lg:mr-[2em] lg:mt-0 md:flex md:justify-between lg:flex-col lg:justify-normal mb-[2em] ">
           <CommentSection />

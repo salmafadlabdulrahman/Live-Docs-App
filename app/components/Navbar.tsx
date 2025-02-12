@@ -14,7 +14,7 @@ import {
 import { useDoc } from "../context/DocContext";
 
 const Navbar = () => {
-  const { docState } = useDoc();
+  const { docState, setShareDoc } = useDoc();
   return (
     <>
       <div className="p-5 md:px-7 md:py-8 lg:px-[5em]">
@@ -53,7 +53,7 @@ const Navbar = () => {
             )}
 
             {docState && (
-              <button className="main-btn w-[40px] h-[38px] sm:w-[110px] sm:h-[38px] flex-row-center ">
+              <button className="main-btn w-[40px] h-[38px] sm:w-[110px] sm:h-[38px] flex-row-center" onClick={() => setShareDoc(true)}>
                 <FontAwesomeIcon icon={faShareFromSquare} />{" "}
                 <p className="hidden sm:block">Share</p>
               </button>

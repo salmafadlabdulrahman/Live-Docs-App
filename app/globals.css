@@ -39,4 +39,12 @@ body {
   .comment-thread-section-btn {
     @apply bg-dark-400 rounded-md w-[36px] h-[34px] flex items-center justify-center box-shadow cursor-pointer
   }
+
+  .blurry-container {
+    @apply fixed inset-0 bg-black/10 backdrop-blur-sm z-10;
+  }
+
+  .centered-blurry-container {
+    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  shadow-xl z-20 w-[90%] 
+  }
 }

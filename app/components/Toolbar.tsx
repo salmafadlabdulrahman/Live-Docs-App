@@ -24,9 +24,11 @@ import {
   INSERT_ORDERED_LIST_COMMAND,
 } from "@lexical/list";
 import Image from "next/image";
+import { useDoc } from "../context/DocContext";
 
 const Toolbar = () => {
   const [editor] = useLexicalComposerContext();
+  const {setDeleteDoc} = useDoc()
   return (
     <div className="flex items-center justify-between border border-y-2 border-dark-200 ">
       <div className="flex items-center gap-6 p-5 flex-wrap">
@@ -96,7 +98,7 @@ const Toolbar = () => {
           <FontAwesomeIcon icon={faAlignRight} className="toolbar-icons" />
         </button>
       </div>
-      <div className=" w-[35px] max-w-[50px] sm:w-[40px] cursor-pointer pr-1">
+      <div className=" w-[35px] max-w-[50px] sm:w-[40px] cursor-pointer pr-1" onClick={() => setDeleteDoc(true)}>
         <Image
           src={"/assets/icons/delete.svg"}
           alt="delete icon"
